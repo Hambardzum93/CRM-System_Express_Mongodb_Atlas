@@ -24,7 +24,7 @@ module.exports.login = async function (req, res) {
         }else{
             //passer@ chi hamnknum
             res.status(401).json({
-                message: 'passer@ chi hamnknum'
+                message: "passwords doesn't match"
             })
         }
     }else{
