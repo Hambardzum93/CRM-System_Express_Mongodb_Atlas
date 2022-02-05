@@ -2,7 +2,7 @@ const User = require('../models/User');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const keys = require('../config/keys');
-const errorHendler = require('../utils/errorHandler');
+const errorHandler = require('../utils/errorHandler');
 
 module.exports.login = async function (req, res) {
     const canditat = await User.findOne({email: req.body.email})
@@ -19,7 +19,7 @@ module.exports.login = async function (req, res) {
             }, keys.jwt, {expiresIn: 60 * 60});
 
             res.status(200).json({
-                token: token
+                token: `Bearer ${token}`
             })
         }else{
             //passer@ chi hamnknum
@@ -57,7 +57,7 @@ module.exports.register = async function (req, res) {
             res.status(201).json(user)
         }catch (e) {
             // error
-            errorHendler(res, e)
+            errorHandler(res, e)
         }
 
     }
