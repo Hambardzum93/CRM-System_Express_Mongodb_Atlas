@@ -1,8 +1,8 @@
 const express = require('express');
 const passport = require('passport');
-// const upload = require('../middleware/upload');
-const multer  = require('multer')
-const upload = multer({ dest: 'uploads/' })
+const upload = require('../middleware/upload');
+// const upload = multer({ dest: 'uploads/' })
+const multer  = require('multer');
 const controller = require('../controllers/category');
 const router = express.Router();
 
